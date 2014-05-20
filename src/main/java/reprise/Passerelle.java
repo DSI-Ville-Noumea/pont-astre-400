@@ -1,8 +1,6 @@
 /*
  * Created on 30 sept. 2009
  *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 package reprise;
 
@@ -20,8 +18,6 @@ import nc.mairie.technique.reprise.OracleConnection;
 /**
  * @author boulu72
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 public class Passerelle {
 	
@@ -344,11 +340,11 @@ public class Passerelle {
 						"		WHERE dat_dem=TO_NUMBER(TO_CHAR(sysdate,'J')))  ," +
 						" (select TO_NUMBER(TO_CHAR(sysdate,'J')) from dual), " +
 						" (select TO_NUMBER(TO_CHAR(sysdate,'SSSSS'))from dual)," +
-						user+" ," + 
+						" ? ," + //************user
 						" 'GFINTDEP'," +
-						user+" ," + 
+						" ? ," + //************user
 						" ?," + //**************** 'VDN'
-						" '"+LIQD_AUTO+"'," +
+						" ?," + //*********LIQD_AUTO
 						" 1," +
 						" (SELECT SUBSTR(val_char,1,instr(val_char,'!',1,1)-1)FROM gf.param     " +
 						" 		WHERE nvl(cod_coll,'-1')=?    " + //**************** 'VDN'
@@ -364,38 +360,55 @@ public class Passerelle {
 						"		from sys.dual)," +
 						" ? ||" + //**************** 'VDN'
 						"		'!'," + 
-						user+" , " + 
+						" ? , " + //**************** user 
 						" 0)";
 				
-						PreparedStatement ps = oracle.getConnection().prepareStatement(req);
-						//ps.clearBatch();
-						
-						String toto = "TRAIT";
-						
-						toto = "TRAIT";
-						ps.setString(1,codcol);
-						ps.setString(2,codcol);
-						ps.setString(3,codcol);
-						ps.setString(4,toto);
-						ps.setString(5,codcol);
-						ps.execute();
-						
-						toto = "CHARG";
-						ps.setString(1,codcol);
-						ps.setString(2,codcol);
-						ps.setString(3,codcol);
-						ps.setString(4,toto);
-						ps.setString(5,codcol);
-						ps.execute();
-						
-						toto = "RETEN";
-						ps.setString(1,codcol);
-						ps.setString(2,codcol);
-						ps.setString(3,codcol);
-						ps.setString(4,toto);
-						ps.setString(5,codcol);
-						ps.execute();
-						
+						PreparedStatement ps=null;
+						try {
+							ps = oracle.getConnection().prepareStatement(req);
+							
+							String toto = "TRAIT";
+							
+							toto = "TRAIT";
+							ps.setString(1,user);
+							ps.setString(2,user);
+							ps.setString(3,codcol);
+							ps.setString(4,LIQD_AUTO);
+							ps.setString(5,codcol);
+							ps.setString(6,codcol);
+							ps.setString(7,toto);
+							ps.setString(8,codcol);
+							ps.setString(9,user);
+							ps.execute();
+							
+							toto = "CHARG";
+							ps.setString(1,user);
+							ps.setString(2,user);
+							ps.setString(3,codcol);
+							ps.setString(4,LIQD_AUTO);
+							ps.setString(5,codcol);
+							ps.setString(6,codcol);
+							ps.setString(7,toto);
+							ps.setString(8,codcol);
+							ps.setString(9,user);
+							ps.execute();
+							
+							toto = "RETEN";
+							ps.setString(1,user);
+							ps.setString(2,user);
+							ps.setString(3,codcol);
+							ps.setString(4,LIQD_AUTO);
+							ps.setString(5,codcol);
+							ps.setString(6,codcol);
+							ps.setString(7,toto);
+							ps.setString(8,codcol);
+							ps.setString(9,user);
+							ps.execute();
+						} catch (Exception e) {
+							throw e;
+						} finally {
+							ps.close();
+						}
 						//ps.executeBatch();
 			} else {
 				//Mise à jour de la table Cm.t_intro 
@@ -405,15 +418,14 @@ public class Passerelle {
 		} catch (Exception e) {
 			
 			throw e;
+		} finally {
+
+			//on close tout
+			db2Connection.getConnection().commit();
+			db2Connection.getConnection().close();
+			oracleConnection.getConnection().commit();
+			oracleConnection.getConnection().close();
 		}
-
-
-
-		//on close tout
-		db2Connection.getConnection().commit();
-		db2Connection.getConnection().close();
-		oracleConnection.getConnection().commit();
-		oracleConnection.getConnection().close();
 		
 	}
 
@@ -524,9 +536,9 @@ public class Passerelle {
 					"		WHERE dat_dem=TO_NUMBER(TO_CHAR(sysdate,'J')))  ," +
 					" (select TO_NUMBER(TO_CHAR(sysdate,'J')) from dual), " +
 					" (select TO_NUMBER(TO_CHAR(sysdate,'SSSSS'))from dual)," +
-					user+" ," + 
+					" ? ," +  //************** user
 					" 'GFINTDEP'," +
-					user+" ," + 
+					" ?  ," + //************** user
 					" ?," + //**************** 'VDN'
 					" '0'," +
 					" 1," +
@@ -544,46 +556,55 @@ public class Passerelle {
 					"		from sys.dual)," +
 					" ? ||" + //**************** 'VDN'
 					"		'!'," + 
-					user+" , " + 
+					" ? , " +  //**************user
 					" 0)";
 			
-					PreparedStatement ps = oracle.getConnection().prepareStatement(req);
-					//ps.clearBatch();
-					
-					String toto = "TRAIT";
-					
-					toto = "TRAIT";
-					ps.setString(1,codcol);
-					ps.setString(2,codcol);
-					ps.setString(3,codcol);
-					ps.setString(4,toto);
-					ps.setString(5,codcol);
-					ps.execute();
-					
-					toto = "CHARG";
-					ps.setString(1,codcol);
-					ps.setString(2,codcol);
-					ps.setString(3,codcol);
-					ps.setString(4,toto);
-					ps.setString(5,codcol);
-					ps.execute();
+					PreparedStatement ps=null;
+					try {
+						ps = oracle.getConnection().prepareStatement(req);
+						
+						String toto = "TRAIT";
+						
+						toto = "TRAIT";
+						ps.setString(1,user);
+						ps.setString(2,user);
+						ps.setString(3,codcol);
+						ps.setString(4,codcol);
+						ps.setString(5,codcol);
+						ps.setString(6,toto);
+						ps.setString(7,codcol);
+						ps.setString(8,user);
+						ps.execute();
+						
+						toto = "CHARG";
+						ps.setString(1,user);
+						ps.setString(2,user);
+						ps.setString(3,codcol);
+						ps.setString(4,codcol);
+						ps.setString(5,codcol);
+						ps.setString(6,toto);
+						ps.setString(7,codcol);
+						ps.setString(8,user);
+						ps.execute();
+					} catch (Exception e) {
+						throw e;
+					} finally {
+						ps.close();
+					}
 					
 					//ps.executeBatch();
 					
 		} catch (Exception e) {
 			
 			throw e;
-		}
-
-
-
-		//on close tout
-		db2Connection.getConnection().commit();
-		db2Connection.getConnection().close();
-		oracleConnection.getConnection().commit();
-		oracleConnection.getConnection().close();
+		} finally {
+			//on close tout
+			db2Connection.getConnection().commit();
+			db2Connection.getConnection().close();
+			oracleConnection.getConnection().commit();
+			oracleConnection.getConnection().close();
 		
-
+		}
 	}
 
 	public void afficherSyntaxe() {
@@ -658,9 +679,15 @@ public class Passerelle {
 
 			//log démarrage
 			String txt = "Démarrage de la passerelle par "+System.getProperty("user.name")+" avec "+args[0];
+			
+			StringBuffer sb = new StringBuffer(txt);
+			
 			for (int i = 1; i < args.length; i++) {
-				txt+=" et "+args[i];
+				sb.append(" et ");
+				sb.append(args[i]);
 			}
+			txt=sb.toString();
+			
 			passerelle.log("--------------------------------------------------------");
 			passerelle.log(txt);
 			
@@ -689,9 +716,15 @@ public class Passerelle {
 			}
 			String className = getClass().getName().substring(getClass().getName().lastIndexOf(".")+1);
 			
-			InputStream is = new FileInputStream(root+className+".properties");
-			properties.load(is);
-			is.close();
+			InputStream is= null;
+			try {
+				is = new FileInputStream(root+className+".properties");
+				properties.load(is);
+			} catch (Exception e) {
+				throw e;
+			} finally {
+				is.close();
+			}
 			log("Lecture des propriétés : "+properties);
 	      
 		} catch (Exception e) {
