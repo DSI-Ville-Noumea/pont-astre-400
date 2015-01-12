@@ -268,7 +268,7 @@
 	</reporting>
 
 	<properties>
-		<framework_version>2.0</framework_version>
+		<framework_version>2.2</framework_version>
 		<artifactId>${project.artifactId}</artifactId>
 		<version>${project.version}</version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
