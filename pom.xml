@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nc.mairie</groupId>
   <artifactId>pont-astre-400</artifactId>
-  <version>2.2-SNAPSHOT</version>
+  <version>2.2</version>
 	<description>Pont des données entre ASTRE GF et l'AS400</description>
 	<name>pont-astre-400</name>
 	<organization>
