@@ -429,7 +429,7 @@ public class Passerelle {
 		
 	}
 
-	public void passerelleSEAT () throws Exception {
+	public void passerelleSEAT_SAV () throws Exception {
 		OracleConnection oracleConnection = new OracleConnection(log, "ORACLE", properties);
 		DB2Connection db2Connection = new DB2Connection(log, "DB2", properties);
 
@@ -613,7 +613,6 @@ public class Passerelle {
 		log("2 : passerelleGFCADCPT");
 		log("3 : passerelleGFTIERS");
 		log("4 : passerelleLIQD");
-		log("5 : passerelleSEAT");
 		}
 	
 	
@@ -654,8 +653,10 @@ public class Passerelle {
 			passerelleLIQD(args[1]);
 			break;
 		case '5':
-			log("Lancement de passerelleSEAT");
-			passerelleSEAT();
+			log("Option 5 OBSOLETE (Lancement de passerelleSEAT). Remplacée par SEAT-Jobs 0.3");
+			//passerelleSEAT_SAV();
+			afficherSyntaxe();
+			System.exit(1);
 			break;
 		case '6':
 			log("Test");
