@@ -27,9 +27,15 @@
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
+	<repositories>
+    	<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
-			<groupId>nc.mairie</groupId>
+			<groupId>com.github.DSI-Ville-Noumea</groupId>
 			<artifactId>framework</artifactId>
 			<version>${framework_version}</version>
 		</dependency>
@@ -265,7 +271,7 @@
 	</reporting>
 
 	<properties>
-		<framework_version>2.2</framework_version>
+		<framework_version>framework-2.5</framework_version>
 		<artifactId>${project.artifactId}</artifactId>
 		<version>${project.version}</version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
