@@ -7,3 +7,7 @@ cache:
   - "$HOME/.m2" 
 before_install: mvn install:install-file -Dfile=./lib/classes12.jar -DgroupId=com.oracle
   -DartifactId=classes12 -Dversion=10.2.0.3 -Dpackaging=jar
+notifications:
+  slack: 
+    rooms:
+      secure: kvWn2wBXf0yq7c3P2yGecFX+qTStHJzPyKL8exUD/q3fRjtSME0hDSChZ1+Ox3WG6SfdCgSqhvO5dC2sCv74xP7HiOj4+atSUh3yaTVq1e+U+wKvyTwJdUNjO2IvWb+8FlVmZoDoNPuZPoXtzhzNXM1Y1AP66qR9ohW9xMkI85NsxXE7FRkdWly2gCYnzd/1sG9ccYi6TqZFCawDx4ITo2b0Gabjgl6dQaq8verwBTDdr1AJGbSH7EVPCQvwrlp2UY0DkxqMge1LjU4Hu8FQmD5NJoxH8xxqHmcLZ8btozvrjhvF36Y5aa9G2+FmVdas2AzCUSZaMvMufUoB+BL2PvBJndcC0AUCmy6UDGTRb5cDSg3UwNlTREPabsaJCbPKZY0vVSkA5/apneO/nGm5OK1pUt5xgEjn9dXVMPMwbXXKu086c0/wH5y44UepvVKcwBoi58X6m/4GmrMsIjIPbMqfCuoo49tGtajSv84ivG78jyy6YalT7ZfNj6y3PcYHHbyBG9uhiFNlDrKWUIbZxKarHN8SdTqdCzr8cx2GzU6NXEDhUmQzVH+gOHKSskzB/eJhXLSHd5oyPULfJezM2gFJTzARNqgvHCDa04OYCUzdWxEF2qG0kbfdqQ9ooZXdSfODbF8lEAVogT3JZRJq4KUFCPByyD8iU3nNYR3FPcg=
