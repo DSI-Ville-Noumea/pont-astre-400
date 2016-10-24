@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/DSI-Ville-Noumea/outil.svg?branch=master)](https://travis-ci.org/DSI-Ville-Noumea/outil)
+[![Build Status](https://travis-ci.org/DSI-Ville-Noumea/pont-astre-400.svg?branch=master)](https://travis-ci.org/DSI-Ville-Noumea/pont-astre-400)
 
-# outil
+# pont-astre-400
 
-Boîte à outils des applis java legacy
+Sync de datas entre Astre et AS400
+
