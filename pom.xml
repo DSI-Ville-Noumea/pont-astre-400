@@ -73,6 +73,15 @@
 		<finalName>${project.artifactId}##${project.version}</finalName>
 		<plugins>
 			<plugin>
+		  	<groupId>com.versioneye</groupId>
+		    	<artifactId>versioneye-maven-plugin</artifactId>
+		    	<version>${versioneye-maven-plugin.version}</version>
+		    	<configuration>
+		        	<apiKey>${versioneye-maven-plugin.apiKey}</apiKey>
+		      		<projectId>${versioneye-maven-plugin.projectId}</projectId>
+		  		</configuration>
+			</plugin>
+			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.7</version>
 				<executions>
@@ -273,6 +282,9 @@
 	</reporting>
 
 	<properties>
+		<versioneye-maven-plugin.version>3.10.2</versioneye-maven-plugin.version>
+   		<versioneye-maven-plugin.apiKey>${env.VERSIONEYE_APIKEY}</versioneye-maven-plugin.apiKey>
+   		<versioneye-maven-plugin.projectId>${env.VERSIONEYE_PROJECTID}</versioneye-maven-plugin.projectId>
 		<framework_version>framework-2.5</framework_version>
 		<artifactId>${project.artifactId}</artifactId>
 		<version>${project.version}</version>
