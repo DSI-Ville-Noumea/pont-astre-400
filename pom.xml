@@ -10,6 +10,21 @@
 		<name>Mairie de Nouméa</name>
 		<url>http://www.ville-noumea.nc</url>
 	</organization>
+		<properties>
+		<versioneye-maven-plugin.version>3.11.1</versioneye-maven-plugin.version>
+   		<versioneye-maven-plugin.apiKey>${env.VERSIONEYE_APIKEY}</versioneye-maven-plugin.apiKey>
+   		<versioneye-maven-plugin.projectId>${env.VERSIONEYE_PROJECTID}</versioneye-maven-plugin.projectId>
+   		<maven-site-plugin.version>3.6</maven-site-plugin.version>
+   		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+   		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+		<framework_version>framework-2.5</framework_version>
+		<artifactId>${project.artifactId}</artifactId>
+		<version>${project.version}</version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<giturl>github.com/DSI-Ville-Noumea/${project.name}</giturl>
+		<java.version>1.5</java.version>
+		<java_version>${java.version}</java_version>
+	</properties>
 	<developers>
 		<developer>
 			<id>Boulu72</id>
@@ -108,7 +123,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>${maven-site-plugin.version}</version>
 				<configuration>
 					<reportPlugins>
 						<plugin>
@@ -171,7 +186,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -180,7 +195,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>${maven-resources-plugin.version}</version>
 				<configuration>
 					<nonFilteredFileExtensions>
 						<nonFilteredFileExtension>ico</nonFilteredFileExtension>
@@ -280,18 +295,5 @@
 		</plugins>
 
 	</reporting>
-
-	<properties>
-		<versioneye-maven-plugin.version>3.10.2</versioneye-maven-plugin.version>
-   		<versioneye-maven-plugin.apiKey>${env.VERSIONEYE_APIKEY}</versioneye-maven-plugin.apiKey>
-   		<versioneye-maven-plugin.projectId>${env.VERSIONEYE_PROJECTID}</versioneye-maven-plugin.projectId>
-		<framework_version>framework-2.5</framework_version>
-		<artifactId>${project.artifactId}</artifactId>
-		<version>${project.version}</version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<giturl>github.com/DSI-Ville-Noumea/${project.name}</giturl>
-		<java.version>1.5</java.version>
-		<java_version>${java.version}</java_version>
-	</properties>
 
 </project>
