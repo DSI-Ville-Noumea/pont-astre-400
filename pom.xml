@@ -17,7 +17,7 @@
    		<maven-site-plugin.version>3.6</maven-site-plugin.version>
    		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
    		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
-		<framework_version>framework-2.5</framework_version>
+		<framework_version>framework-2.6</framework_version>
 		<artifactId>${project.artifactId}</artifactId>
 		<version>${project.version}</version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
