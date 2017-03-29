@@ -11,7 +11,7 @@
 		<url>http://www.ville-noumea.nc</url>
 	</organization>
 		<properties>
-		<versioneye-maven-plugin.version>3.11.1</versioneye-maven-plugin.version>
+		<versioneye-maven-plugin.version>3.11.2</versioneye-maven-plugin.version>
    		<versioneye-maven-plugin.apiKey>${env.VERSIONEYE_APIKEY}</versioneye-maven-plugin.apiKey>
    		<versioneye-maven-plugin.projectId>${env.VERSIONEYE_PROJECTID}</versioneye-maven-plugin.projectId>
    		<maven-site-plugin.version>3.6</maven-site-plugin.version>
@@ -24,6 +24,7 @@
 		<giturl>github.com/DSI-Ville-Noumea/${project.name}</giturl>
 		<java.version>1.5</java.version>
 		<java_version>${java.version}</java_version>
+		<jt400.version>9.2</jt400.version>
 	</properties>
 	<developers>
 		<developer>
@@ -57,7 +58,7 @@
 		<dependency>
 			<groupId>net.sf.jt400</groupId>
 			<artifactId>jt400</artifactId>
-			<version>9.1</version>
+			<version>${jt400.version}</version>
 			 <scope>provided</scope>
 		</dependency>
 		<!-- La version java 1.2 pour l'AS400 -->
