@@ -24,7 +24,7 @@
 		<giturl>github.com/DSI-Ville-Noumea/${project.name}</giturl>
 		<java.version>1.5</java.version>
 		<java_version>${java.version}</java_version>
-		<jt400.version>9.2</jt400.version>
+		<jt400.version>9.3</jt400.version>
 	</properties>
 	<developers>
 		<developer>
